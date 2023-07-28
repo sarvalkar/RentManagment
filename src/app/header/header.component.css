@@ -1,0 +1,24 @@
+mat-toolbar {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+  }
+  
+  button {
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+  
+  mat-toolbar {
+    background: #a56721;
+  }
+  mat-toolbar-row{
+    height: 76px;
+  }
+  
+ 
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

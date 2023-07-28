@@ -1,0 +1,58 @@
+<h1 mat-dialog-title> Add Flat Details</h1>
+<div mat-dialog-content>
+   <form [formGroup]="rentPayform">     
+        <mat-form-field>
+            <mat-label>Renterer Name</mat-label>
+            <mat-select formControlName="renterName" required>
+                <mat-option *ngFor="let renter of rentererList"[value]="renter">
+                    {{renter.renterName}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Rent Ammount</mat-label>
+              <input formControlName="rentAmmount"  matInput placeholder="Enter Rent Ammount">
+            </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Rent Type</mat-label>
+        <mat-select formControlName="rentType" required>
+            <mat-option *ngFor="let rentType of rentTypeList"[value]="rentType">
+                {{rentType}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Month Of Payment</mat-label>
+          <input formControlName="monthOfPayment"  matInput placeholder="Enter Month and year">
+        </mat-form-field> -->
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="monthOfPayment" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label> Electric Bill </mat-label>
+              <input formControlName="electricBill"  matInput placeholder="Enter electric Bill Ammount">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Water Bill</mat-label>
+                  <input formControlName="waterBill"  matInput placeholder="Enter water Bill Ammount">
+                </mat-form-field>
+
+      
+   </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="primary" (click)="addRentPay()">{{actionBtn}}</button>
+    <button mat-raised-button color="accent" mat-dialog-close style="margin-left: 10px;">Close</button>
+</div>

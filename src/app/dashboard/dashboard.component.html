@@ -1,0 +1,40 @@
+
+<!-- 3 simple cards to show the count of total renter, building and flat -->
+
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Dashboard</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data position-absolute text-center">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Buildings</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="font-size: 20px;">
+                <p>Total Buildings:
+                {{buildingList.length}}
+                </p>
+              </mat-card-content>
+          </mat-card>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Flats</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="font-size: 20px;">
+              <p>Total Flats:
+              {{flatList.length}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Renterer</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="font-size: 20px;">
+              <p>Total Renter:
+              {{renterList.length}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+      </div>
+    </div>
+  </div>

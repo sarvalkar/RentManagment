@@ -1,0 +1,36 @@
+<h1 mat-dialog-title> Add Flat Details</h1>
+<div mat-dialog-content>
+   <form [formGroup]="flatForm">
+
+    
+
+      <mat-form-field>
+        <mat-label>Building Name</mat-label>
+        <mat-select formControlName="buildingName" required>
+            <mat-option *ngFor="let building of buildingList"[value]="building">
+                {{building.buildingName}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Floor number</mat-label>
+        <mat-select formControlName="flooreNumber" required>
+            <mat-option *ngFor="let building of buildingList"[value]="building">
+                {{building.flooreNumber}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Flat Number</mat-label>
+          <input formControlName="flatName"  matInput placeholder="Enter Flat Number">
+        </mat-form-field>
+
+   </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="primary" (click)="addFlat()">{{actionBtn}}</button>
+    <button mat-raised-button color="accent" mat-dialog-close style="margin-left: 10px;">Close</button>
+</div>

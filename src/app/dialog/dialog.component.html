@@ -1,0 +1,21 @@
+<h1 mat-dialog-title> Add Building Details</h1>
+<div mat-dialog-content>
+   <form [formGroup]="buildingForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Building Name</mat-label>
+        <input formControlName="buildingName" matInput placeholder="Building Name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Floor number</mat-label>
+        <input formControlName="flooreNumber" type="number" matInput maxlength="2" placeholder="Placeholder">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Building number</mat-label>
+        <input  formControlName="buildingNumber" type="number" matInput maxlength="2" placeholder="Placeholder">
+      </mat-form-field>
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="primary" (click)="addBuilding()">{{actionBtn}}</button>
+    <button mat-raised-button color="accent" mat-dialog-close style="margin-left: 10px;">Close</button>
+</div>
