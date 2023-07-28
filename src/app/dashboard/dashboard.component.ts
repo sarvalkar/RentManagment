@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
    flatList:any;
    renterList:any;
 
-  ngOnInit(): void {
+  ngOnInit(): void { // Fetching data from json server to show count in dashboard
       this.http.get('http://localhost:3000/buildingList/').subscribe(res => {     
       this.buildingList = res;
     })

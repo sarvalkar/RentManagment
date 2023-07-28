@@ -1,4 +1,7 @@
-<h1 mat-dialog-title> Add Flat Details</h1>
+
+<!-- Rent Pay Details -->
+
+<h1 mat-dialog-title> Add Rent Pay Details</h1>
 <div mat-dialog-content>
    <form [formGroup]="rentPayform">     
         <mat-form-field>
@@ -24,11 +27,6 @@
         </mat-select>
       </mat-form-field>
 
-      <!-- <mat-form-field appearance="outline">
-        <mat-label>Month Of Payment</mat-label>
-          <input formControlName="monthOfPayment"  matInput placeholder="Enter Month and year">
-        </mat-form-field> -->
-
         <mat-form-field class="example-full-width">
             <mat-label>Choose a date</mat-label>
             <input formControlName="monthOfPayment" matInput [matDatepicker]="picker">
@@ -46,9 +44,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Water Bill</mat-label>
                   <input formControlName="waterBill"  matInput placeholder="Enter water Bill Ammount">
-                </mat-form-field>
-
-      
+                </mat-form-field>    
    </form>
 </div>
 

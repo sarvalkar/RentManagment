@@ -29,7 +29,7 @@ export class RenterComponent implements OnInit {
   }
 
 
-  addRenter(){
+  addRenter(){  // To add new renter information
     this.dialog.open(DialogforRenterComponent, {
       width:'30%'
      }).afterClosed().subscribe(val=>{
@@ -40,7 +40,7 @@ export class RenterComponent implements OnInit {
   }
 
 
-  editRenter(row:any){
+  editRenter(row:any){ // Edit rnter table row
     this.dialog.open(DialogforRenterComponent,{
       data:row
     }).afterClosed().subscribe(val=>{
@@ -50,7 +50,7 @@ export class RenterComponent implements OnInit {
     })
   }
 
-  deleteRenter(renterName:string){
+  deleteRenter(renterName:string){ // Delete table row
     this.api.deleteRenter(renterName)
     .subscribe({
       next:(res)=>{

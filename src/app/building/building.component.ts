@@ -25,7 +25,7 @@ export class BuildingComponent implements OnInit {
     this.getAllBuldingList();
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event) { // Material  Function For table filter
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -35,7 +35,7 @@ export class BuildingComponent implements OnInit {
   }
 
 
-  editBuilding(row:any){
+  editBuilding(row:any){ // Edit function for edit table row
     this.dialog.open(DialogComponent,{
       data:row
     }).afterClosed().subscribe(val=>{
@@ -44,7 +44,7 @@ export class BuildingComponent implements OnInit {
       }
     })
   }
-
+// For deleteing the row
   deleteBuildings(id:number){
     this.api.deleteBuilding(id)
     .subscribe({
@@ -57,7 +57,7 @@ export class BuildingComponent implements OnInit {
       }
     })
   }
-
+// To ad new Building information here with Building name, Floor number and Building number.
   addBulding(){
     this.dialog.open(DialogComponent, {
      width:'30%'
@@ -68,7 +68,7 @@ export class BuildingComponent implements OnInit {
     })
   }
 
-  getAllBuldingList(){
+  getAllBuldingList(){ // Getting data From json server
     this.api.getBulding()
     .subscribe({
       next:(res:any)=>{

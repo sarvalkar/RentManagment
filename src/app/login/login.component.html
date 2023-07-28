@@ -1,30 +1,10 @@
-<!-- <div class="conainer" class="form-box">
-<form [formGroup]="login" (ngSubmit)="logindata(login)">
-    <h1>Log In</h1>
-    <div class="form-group">
-        <label for="userName">User Name</label>
-        <input type="text" class="form-control mb-3 mt-3" formControlName="fname" placeholder="Enter User Name">
-       
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="text" class="form-control mb-3 mt-3" formControlName="password" placeholder="Enter Password">
-    </div>
-    <div class="col-auto">
-        <button  type="submit" class="btn btn-primary">Log In</button>
-      </div>
-</form>
-</div> -->
-
+<!-- Log in page for admin login -->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
- 
+<head> 
 </head>
 <body>
-
     <div class="login-page bg-light">
         <div class="container">
             <div class="row">
@@ -34,7 +14,7 @@
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                        <form [formGroup]="login" (ngSubmit)="logindata(login)" class="row g-4">
+                                        <form [formGroup]="login" (ngSubmit)="loginUser(login)" class="row g-4">
                                             <div class="col-12">
                                                 <label>Username<span class="text-danger">*</span></label>
                                                 <div class="input-group">
@@ -70,8 +50,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
-     
+    <!-- Bootstrap JS --> 
 </body>
 </html>
