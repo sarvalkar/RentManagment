@@ -18,11 +18,11 @@ export class ApiService {
     return this.http.get<any>("http://localhost:3000/buildingList/");
   }
 
-  putBuilding(data:any, id:number){
+  putBuilding(data:any, id:number|string){
     return this.http.put<any>("http://localhost:3000/buildingList/"+id, data)
   }
 
-  deleteBuilding(id:number){
+  deleteBuilding(id:number|string){
     return this.http.delete<any>("http://localhost:3000/buildingList/"+id)
   }
 
@@ -42,6 +42,10 @@ export class ApiService {
 
   deleteFlat(flatName:string){
     return this.http.delete<any>("http://localhost:3000/flatList/"+flatName)
+  }
+
+  deleteFlatById(building_id:string){
+    return this.http.delete<any>("http://localhost:3000/flatList?building_id="+building_id)
   }
 
   //Renter API

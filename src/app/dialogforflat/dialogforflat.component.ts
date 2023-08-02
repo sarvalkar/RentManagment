@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-dialogforflat',
   templateUrl: './dialogforflat.component.html',
@@ -19,7 +19,8 @@ actionBtn:string = "Save";
       @Inject(MAT_DIALOG_DATA)public editDataforFlat:any,
       private api: ApiService) { }
 
-  buildingList:any;
+  buildingList:Array<any> = [];
+  floorList:Array<any> = [];
   url: string = 'http://localhost:3000/buildingList/';
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ actionBtn:string = "Save";
       flooreNumber: ['',Validators.required],  
     })
     this.http.get(this.url).subscribe(res => {
-      this.buildingList = res;
+      this.buildingList = (res as Array<any>).map((building) => {return {buildingName: building.buildingName, building_id: building.id, flooreNumber: building.flooreNumber}} )
     });
 
     if(this.editDataforFlat){
@@ -38,13 +39,21 @@ actionBtn:string = "Save";
       this.flatForm.controls['flooreNumber'].setValue(this.editDataforFlat.flooreNumber)
       this.flatForm.controls['flatName'].setValue(this.editDataforFlat.flatName)
     }
+
+    // this.flatForm.get('buildingName')?.valueChanges.subscribe(value => {
+    //   if(value) {
+
+    //     this.floorList = this.buildingList.filter((building) => building.building_id === value.building_id)
+    //   }
+    //   console.log("subscribe",value, this.floorList);
+    // })
     
   }
 
   addFlat(){
     if(!this.editDataforFlat){
       if(this.flatForm.valid){
-        this.api.postFlat(this.flatForm.value)
+        this.api.postFlat({...this.flatForm.value, id:uuidv4(), building_id: this.flatForm.value.buildingName.building_id })
         .subscribe({
           next:(res)=>{
             alert("Flat details added successfully")
