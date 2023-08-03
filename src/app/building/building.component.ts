@@ -45,17 +45,19 @@ export class BuildingComponent implements OnInit {
     })
   }
 // For deleteing the row
-  deleteBuildings(id:number){
-    this.api.deleteBuilding(id)
-    .subscribe({
-      next:(res)=>{
-        alert("Building Details Deleted..")
-        this.getAllBuldingList()
-      },
-      error:(err)=>{
-        alert("Error while Deleting")
-      }
-    })
+  deleteBuildings(id:number| string){
+    this.deleteAllFlatsByBuildingId(id.toString())
+    // this.api.deleteBuilding(id)
+    // .subscribe({
+    //   next:(res)=>{
+    //     alert("Building Details Deleted..")
+    //     this.deleteAllFlatsByBuildingId(res.id)
+    //     this.getAllBuldingList()
+    //   },
+    //   error:(err)=>{
+    //     alert("Error while Deleting")
+    //   }
+    // })
   }
 // To ad new Building information here with Building name, Floor number and Building number.
   addBulding(){
@@ -80,6 +82,29 @@ export class BuildingComponent implements OnInit {
         alert("Error while fetching data")
       }
     })
+  }
+
+  async deleteAllFlatsByBuildingId(id:string) {
+    try {
+      debugger;
+    const data = await this.api.deleteBuilding(id).toPromise();
+    const _allFlats = await this.api.getFlat().toPromise();
+    const flat_need_to_deleate =  _allFlats.map((flat: { building_id: string; id: string; },i: any)  => {
+      if(flat.building_id === id) {
+        return this.api.deleteFlat(flat.id).toPromise();
+      } else {
+        return;
+      }
+    })
+    const deleatedFlat = await Promise.all(flat_need_to_deleate);
+    this.getAllBuldingList();
+    } catch (error) {
+      alert(error)
+      console.log(error);
+      
+    }
+    
+   
   }
 
   }
