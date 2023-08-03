@@ -4,14 +4,14 @@
 <div class="container-fluid page">
     <div class="d-flex page__box p-3 mt-2">Dashboard</div>
     <div class="page__content shadow p-3 position-relative">
-      <div class="page__content-data position-absolute text-center">
+      <div class="page__content-data text-center">
         <mat-card class="example-card">
             <mat-card-header>
               <mat-card-title>Buildings</mat-card-title>
             </mat-card-header>
             <mat-card-content style="font-size: 20px;">
                 <p>Total Buildings:
-                {{buildingList.length}}
+                {{buildingList?.length}}
                 </p>
               </mat-card-content>
           </mat-card>
@@ -21,7 +21,7 @@
             </mat-card-header>
             <mat-card-content style="font-size: 20px;">
               <p>Total Flats:
-              {{flatList.length}}
+              {{flatList?.length}}
               </p>
             </mat-card-content>
           </mat-card>
@@ -31,7 +31,7 @@
             </mat-card-header>
             <mat-card-content style="font-size: 20px;">
               <p>Total Renter:
-              {{renterList.length}}
+              {{renterList?.length}}
               </p>
             </mat-card-content>
           </mat-card>

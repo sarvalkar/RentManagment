@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { v4 as uuidv4 } from 'uuid';
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -39,20 +41,20 @@ actionBtn:string = "Save";
 
   addBuilding(){ // Sending data on save to json server
     if(!this.editData){
-      if(this.buildingForm.valid){
-        this.api.postBuilding(this.buildingForm.value)
-        .subscribe({
-          next:(res)=>{
-            alert("Flat details added successfully")
-            console.log(res); 
-            this.buildingForm.reset();
-            this.dialogRef.close('save');
-          },
-          error:()=>{
-            alert("something went wrong!")
-          }
-        })
-       }
+  if(this.buildingForm.valid){
+
+    this.api.postBuilding({...this.buildingForm.value, id: uuidv4()})
+    .subscribe({
+      next:(res)=>{
+        alert("Bulding details added successfully")
+        this.buildingForm.reset();
+        this.dialogRef.close('save');
+      },
+      error:()=>{
+        alert("something went wrong!")
+      }
+    })
+   }
     }else{
       this.updateBuilding();
     }

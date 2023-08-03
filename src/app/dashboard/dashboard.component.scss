@@ -16,9 +16,11 @@
       color: black;
       font-size: 2rem;
       &-data {
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
       }
     }
   }
