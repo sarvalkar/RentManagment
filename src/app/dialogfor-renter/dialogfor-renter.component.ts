@@ -27,7 +27,7 @@ url1: string = 'http://localhost:3000/flatList/';
   ngOnInit(): void {
     this.renterform = this.formBuilder.group({
       renterName:['',Validators.required],
-      flooreNumber: ['',Validators.required],
+      floorNumber: ['',Validators.required],
       flatName: ['',Validators.required],
       buildingName: ['',Validators.required]  
     })
@@ -43,7 +43,7 @@ url1: string = 'http://localhost:3000/flatList/';
       this.actionBtn = "Update";
       this.renterform.controls['buildingName'].setValue(this.editDataforRenter.buildingName)
       this.renterform.controls['renterName'].setValue(this.editDataforRenter.renterName)
-      this.renterform.controls['flooreNumber'].setValue(this.editDataforRenter.flooreNumber)
+      this.renterform.controls['floorNumber'].setValue(this.editDataforRenter.floorNumber)
       this.renterform.controls['flatName'].setValue(this.editDataforRenter.flatName)
     }
   }

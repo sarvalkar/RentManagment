@@ -1,9 +1,6 @@
 <h1 mat-dialog-title> Add Flat Details</h1>
 <div mat-dialog-content>
    <form [formGroup]="flatForm">
-
-    
-
       <mat-form-field>
         <mat-label>Building Name</mat-label>
         <mat-select formControlName="buildingName" required>
@@ -15,9 +12,9 @@
 
       <mat-form-field>
         <mat-label>Floor number</mat-label>
-        <mat-select formControlName="flooreNumber" required>
+        <mat-select formControlName="floorNumber" required>
             <mat-option *ngFor="let building of buildingList"[value]="building">
-                {{building.flooreNumber}}
+                {{building.floorNumber}}
               </mat-option>
         </mat-select>
       </mat-form-field>

@@ -19,36 +19,46 @@ actionBtn:string = "Save";
   ngOnInit(): void { //Form Controls
     this.buildingForm = this.formBuilder.group({
       buildingName: ['',Validators.required],
-      flooreNumber: ['',Validators.required],
-      buildingNumber: ['',Validators.required]
+      floorNumber: ['',Validators.required]
     })
     if(this.editData){ // On update setting values to perticuler fields.
       this.actionBtn = "Update";
       this.buildingForm.controls['buildingName'].setValue(this.editData.buildingName)
-      this.buildingForm.controls['flooreNumber'].setValue(this.editData.flooreNumber)
-      this.buildingForm.controls['buildingNumber'].setValue(this.editData.buildingNumber)
+      this.buildingForm.controls['floorNumber'].setValue(this.editData.floorNumber)
+      
     }
   }
 
+  // get buildingName(){
+  //   return this.buildingForm.get('buildingName');
+  // }
+
+  // get floorNumber(){
+  //   return this.buildingForm.get('floorNumber');
+  // }
+
   addBuilding(){ // Sending data on save to json server
     if(!this.editData){
-  if(this.buildingForm.valid){
-    this.api.postBuilding(this.buildingForm.value)
-    .subscribe({
-      next:(res)=>{
-        alert("Bulding details added successfully")
-        this.buildingForm.reset();
-        this.dialogRef.close('save');
-      },
-      error:()=>{
-        alert("something went wrong!")
-      }
-    })
-   }
+      if(this.buildingForm.valid){
+        this.api.postBuilding(this.buildingForm.value)
+        .subscribe({
+          next:(res)=>{
+            alert("Flat details added successfully")
+            console.log(res); 
+            this.buildingForm.reset();
+            this.dialogRef.close('save');
+          },
+          error:()=>{
+            alert("something went wrong!")
+          }
+        })
+       }
     }else{
-      this.updateBuilding()
+      this.updateBuilding();
     }
-  }
+    }
+
+    
   updateBuilding(){ // Update data On updat og building form
     this.api.putBuilding(this.buildingForm.value,this.editData.id)
     .subscribe({

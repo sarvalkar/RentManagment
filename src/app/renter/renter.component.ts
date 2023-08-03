@@ -16,7 +16,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class RenterComponent implements OnInit {
 
-  displayedColumns: string[] = ['renterName', 'buildingName', 'flooreNumber', 'flatName', 'action'];
+  displayedColumns: string[] = ['renterName', 'buildingName', 'floorNumber', 'flatName', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -10,6 +10,63 @@ export class ApiService {
 
 //Building API
 
+buildingData= [{
+    building: {
+      name:'A',
+      id:'1',
+      Floor:[{
+        number:'1',
+        Flats:[{
+          number:'1',
+          tenant:'Pradeep'
+        },
+        {
+          number:'2',
+          tenant:'Shraddha'
+        }
+    ]
+      }
+      ]
+    }
+    
+  },
+  {
+    building: {
+      name:'B',
+      id:'2',
+      Floor:[{
+        number:'1',
+        Flats:[{
+          number:'1',
+          tenant:'Ashish'
+        },
+        {
+          number:'2',
+          tenant:'Neha'
+        }
+    ]
+      },
+      {
+        number:'2',
+        Flats:[{
+          number:'1',
+          tenant:'Rahul'
+        },
+        {
+          number:'2',
+          tenant:'Priya'
+        }
+    ]
+      },
+      ]
+    }
+    
+  }
+  
+  ]
+  
+
+
   postBuilding(data:any){
     return this.http.post<any>("http://localhost:3000/buildingList/",data);
   }
@@ -18,12 +75,16 @@ export class ApiService {
     return this.http.get<any>("http://localhost:3000/buildingList/");
   }
 
+  public getFlatList(id:number,buildingName:any){
+    return this.http.get("http://localhost:3000/buildingList/"+buildingName.id);
+}
+
   putBuilding(data:any, id:number){
     return this.http.put<any>("http://localhost:3000/buildingList/"+id, data)
   }
 
-  deleteBuilding(id:number){
-    return this.http.delete<any>("http://localhost:3000/buildingList/"+id)
+  deleteBuilding(buildingName:any){
+    return this.http.delete<any>("http://localhost:3000/buildingList/"+buildingName)
   }
 
 //Flat API

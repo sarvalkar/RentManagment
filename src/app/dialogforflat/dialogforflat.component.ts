@@ -26,7 +26,7 @@ actionBtn:string = "Save";
     this.flatForm = this.formBuilder.group({
       flatName:['',Validators.required],
       buildingName: ['',Validators.required],
-      flooreNumber: ['',Validators.required],  
+      floorNumber: ['',Validators.required],  
     })
     this.http.get(this.url).subscribe(res => {
       this.buildingList = res;
@@ -35,7 +35,7 @@ actionBtn:string = "Save";
     if(this.editDataforFlat){
       this.actionBtn = "Update";
       this.flatForm.controls['buildingName'].setValue(this.editDataforFlat.buildingName)
-      this.flatForm.controls['flooreNumber'].setValue(this.editDataforFlat.flooreNumber)
+      this.flatForm.controls['floorNumber'].setValue(this.editDataforFlat.floorNumber)
       this.flatForm.controls['flatName'].setValue(this.editDataforFlat.flatName)
     }
     

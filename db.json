@@ -7,291 +7,83 @@
   ],
   "buildingList": [
     {
-      "buildingName": "A wing",
-      "flooreNumber": 1,
-      "buildingNumber": 1,
+      "buildingName": "a",
+      "floorNumber": 3,
       "id": 1
-    },
-    {
-      "buildingName": "B wing",
-      "flooreNumber": 5,
-      "buildingNumber": 2,
-      "id": 2
-    },
-    {
-      "buildingName": "C wing",
-      "flooreNumber": 3,
-      "buildingNumber": 3,
-      "id": 3
     }
   ],
   "flatList": [
     {
       "flatName": "2",
       "buildingName": {
-        "buildingName": "A wing",
-        "flooreNumber": 1,
-        "buildingNumber": 1,
+        "buildingName": "d",
+        "floorNumber": 2,
         "id": 1
       },
-      "flooreNumber": {
-        "buildingName": "C wing",
-        "flooreNumber": 3,
-        "buildingNumber": 3,
-        "id": 3
-      },
-      "id": 3
-    },
-    {
-      "flatName": "7",
-      "buildingName": {
-        "buildingName": "B wing",
-        "flooreNumber": 5,
-        "buildingNumber": 2,
-        "id": 2
-      },
-      "flooreNumber": {
-        "buildingName": "A wing",
-        "flooreNumber": 1,
-        "buildingNumber": 1,
-        "id": 1
-      },
-      "id": 4
-    },
-    {
-      "flatName": "4",
-      "buildingName": {
-        "buildingName": "C wing",
-        "flooreNumber": 3,
-        "buildingNumber": 3,
-        "id": 3
-      },
-      "flooreNumber": {
-        "buildingName": "C wing",
-        "flooreNumber": 3,
-        "buildingNumber": 3,
-        "id": 3
-      },
-      "id": 5
-    }
-  ],
-  "renterList": [
-    {
-      "renterName": "Pradeep",
-      "flooreNumber": {
-        "buildingName": "B wing",
-        "flooreNumber": 5,
-        "buildingNumber": 2,
-        "id": 2
-      },
-      "flatName": {
-        "flatName": "7",
-        "buildingName": {
-          "buildingName": "B wing",
-          "flooreNumber": 5,
-          "buildingNumber": 2,
-          "id": 2
-        },
-        "flooreNumber": {
-          "buildingName": "A wing",
-          "flooreNumber": 1,
-          "buildingNumber": 1,
-          "id": 1
-        },
-        "id": 4
-      },
-      "buildingName": {
-        "buildingName": "A wing",
-        "flooreNumber": 1,
-        "buildingNumber": 1,
+      "floorNumber": {
+        "buildingName": "d",
+        "floorNumber": 2,
         "id": 1
       },
       "id": 1
     },
     {
-      "renterName": "Rahul",
-      "flooreNumber": {
-        "buildingName": "B wing",
-        "flooreNumber": 5,
-        "buildingNumber": 2,
-        "id": 2
-      },
-      "flatName": {
-        "flatName": "2",
-        "buildingName": {
-          "buildingName": "A wing",
-          "flooreNumber": 1,
-          "buildingNumber": 1,
-          "id": 1
-        },
-        "flooreNumber": {
-          "buildingName": "C wing",
-          "flooreNumber": 3,
-          "buildingNumber": 3,
-          "id": 3
-        },
-        "id": 3
-      },
+      "flatName": "3",
       "buildingName": {
-        "buildingName": "C wing",
-        "flooreNumber": 3,
-        "buildingNumber": 3,
-        "id": 3
-      },
-      "id": 2
-    },
-    {
-      "renterName": "prakash",
-      "flooreNumber": {
-        "buildingName": "A wing",
-        "flooreNumber": 1,
-        "buildingNumber": 1,
+        "buildingName": "a",
+        "floorNumber": 3,
         "id": 1
       },
-      "flatName": {
-        "flatName": "2",
-        "buildingName": {
-          "buildingName": "A wing",
-          "flooreNumber": 1,
-          "buildingNumber": 1,
-          "id": 1
-        },
-        "flooreNumber": {
-          "buildingName": "C wing",
-          "flooreNumber": 3,
-          "buildingNumber": 3,
-          "id": 3
-        },
-        "id": 3
+      "floorNumber": {
+        "buildingName": "a",
+        "floorNumber": 3,
+        "id": 1
       },
-      "buildingName": {
-        "buildingName": "B wing",
-        "flooreNumber": 5,
-        "buildingNumber": 2,
-        "id": 2
-      },
-      "id": 3
+      "id": 2
     }
   ],
+  "renterList": [],
   "rentPay": [
     {
       "renterName": {
-        "renterName": "Rahul",
-        "flooreNumber": {
-          "buildingName": "B wing",
-          "flooreNumber": 5,
-          "buildingNumber": 2,
-          "id": 2
+        "renterName": "pradeep",
+        "floorNumber": {
+          "buildingName": "A wing",
+          "floorNumber": 1,
+          "id": 1
         },
         "flatName": {
-          "flatName": "2",
+          "flatName": "5",
           "buildingName": {
+            "buildingName": "B wing ",
+            "floorNumber": 5,
+            "id": 2
+          },
+          "floorNumber": {
             "buildingName": "A wing",
-            "flooreNumber": 1,
-            "buildingNumber": 1,
+            "floorNumber": 1,
             "id": 1
           },
-          "flooreNumber": {
-            "buildingName": "C wing",
-            "flooreNumber": 3,
-            "buildingNumber": 3,
-            "id": 3
-          },
-          "id": 3
+          "id": 2
         },
         "buildingName": {
-          "buildingName": "C wing",
-          "flooreNumber": 3,
-          "buildingNumber": 3,
-          "id": 3
+          "buildingName": "B wing ",
+          "floorNumber": 5,
+          "id": 2
         },
         "id": 2
       },
-      "rentAmmount": "459",
-      "monthOfPayment": "june-2023",
+      "rentAmmount": "9000",
+      "monthOfPayment": "2023-08-30T18:30:00.000Z",
       "rentType": "Due rent",
-      "electricBill": "77",
-      "waterBill": "77",
+      "electricBill": "880",
+      "waterBill": "780",
       "id": 1
     },
     {
-      "renterName": {
-        "renterName": "Pradeep",
-        "flooreNumber": {
-          "buildingName": "B wing",
-          "flooreNumber": 5,
-          "buildingNumber": 2,
-          "id": 2
-        },
-        "flatName": {
-          "flatName": "7",
-          "buildingName": {
-            "buildingName": "B wing",
-            "flooreNumber": 5,
-            "buildingNumber": 2,
-            "id": 2
-          },
-          "flooreNumber": {
-            "buildingName": "A wing",
-            "flooreNumber": 1,
-            "buildingNumber": 1,
-            "id": 1
-          },
-          "id": 4
-        },
-        "buildingName": {
-          "buildingName": "A wing",
-          "flooreNumber": 1,
-          "buildingNumber": 1,
-          "id": 1
-        },
-        "id": 1
-      },
-      "rentAmmount": "20000",
-      "monthOfPayment": "july-2023",
-      "rentType": "Active month",
-      "electricBill": "800",
-      "waterBill": "300",
       "id": 2
     },
     {
-      "renterName": {
-        "renterName": "prakash",
-        "flooreNumber": {
-          "buildingName": "A wing",
-          "flooreNumber": 1,
-          "buildingNumber": 1,
-          "id": 1
-        },
-        "flatName": {
-          "flatName": "2",
-          "buildingName": {
-            "buildingName": "A wing",
-            "flooreNumber": 1,
-            "buildingNumber": 1,
-            "id": 1
-          },
-          "flooreNumber": {
-            "buildingName": "C wing",
-            "flooreNumber": 3,
-            "buildingNumber": 3,
-            "id": 3
-          },
-          "id": 3
-        },
-        "buildingName": {
-          "buildingName": "B wing",
-          "flooreNumber": 5,
-          "buildingNumber": 2,
-          "id": 2
-        },
-        "id": 3
-      },
-      "rentAmmount": "9000",
-      "monthOfPayment": "2023-07-29T18:30:00.000Z",
-      "rentType": "Due rent",
-      "electricBill": "000",
-      "waterBill": "000",
       "id": 3
     }
   ]

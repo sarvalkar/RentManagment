@@ -17,8 +17,10 @@ import { ApiService } from '../services/api.service';
 })
 export class FlatComponent implements OnInit {
 
-  displayedColumns: string[] = ['flatName', 'flooreNumber', 'buildingName', 'action'];
+  displayedColumns: string[] = ['flatName', 'floorNumber', 'buildingName', 'action'];
   dataSource!: MatTableDataSource<any>;
+  buildingList:any;
+  url: string = 'http://localhost:3000/buildingList/';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

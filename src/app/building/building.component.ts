@@ -5,7 +5,7 @@ import { ApiService } from '../services/api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { inject } from '@angular/core/testing';
+import { Flat, } from '../model';
 
 @Component({
   selector: 'app-building',
@@ -13,7 +13,7 @@ import { inject } from '@angular/core/testing';
   styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent implements OnInit {
-  displayedColumns: string[] = ['buildingName', 'flooreNumber', 'buildingNumber', 'action'];
+  displayedColumns: string[] = ['buildingName', 'floorNumber', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -57,6 +57,7 @@ export class BuildingComponent implements OnInit {
       }
     })
   }
+
 // To ad new Building information here with Building name, Floor number and Building number.
   addBulding(){
     this.dialog.open(DialogComponent, {
@@ -72,9 +73,11 @@ export class BuildingComponent implements OnInit {
     this.api.getBulding()
     .subscribe({
       next:(res:any)=>{
+        console.log(res);
        this.dataSource = new MatTableDataSource(res);
        this.dataSource.paginator = this.paginator;
        this.dataSource.sort = this.sort
+       
       },
       error:(err)=>{
         alert("Error while fetching data")
