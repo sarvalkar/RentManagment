@@ -119,8 +119,11 @@ buildingData= [{
     return this.http.put<any>("http://localhost:3000/renterList/"+id, data)    
   }
 
-  deleteRenter(renterName:string){
-    return this.http.delete<any>("http://localhost:3000/renterList/"+renterName)
+  deleteRenter(id:string){
+    return this.http.delete<any>("http://localhost:3000/renterList/"+id)
+  }
+  deleteRenterById(building_id:string){
+    return this.http.delete<any>("http://localhost:3000/renterList?building_id="+building_id)
   }
 
   //RentPay API

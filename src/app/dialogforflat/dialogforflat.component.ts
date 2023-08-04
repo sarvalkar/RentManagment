@@ -30,7 +30,7 @@ actionBtn:string = "Save";
       floorNumber: ['',Validators.required],  
     })
     this.http.get(this.url).subscribe(res => {
-      this.buildingList = (res as Array<any>).map((building) => {return {buildingName: building.buildingName, building_id: building.id, flooreNumber: building.flooreNumber}} )
+      this.buildingList = (res as Array<any>).map((building) => {return {buildingName: building.buildingName, building_id: building.id, floorNumber: building.floorNumber}} )
     });
 
     if(this.editDataforFlat){
@@ -38,22 +38,14 @@ actionBtn:string = "Save";
       this.flatForm.controls['buildingName'].setValue(this.editDataforFlat.buildingName)
       this.flatForm.controls['floorNumber'].setValue(this.editDataforFlat.floorNumber)
       this.flatForm.controls['flatName'].setValue(this.editDataforFlat.flatName)
-    }
-
-    // this.flatForm.get('buildingName')?.valueChanges.subscribe(value => {
-    //   if(value) {
-
-    //     this.floorList = this.buildingList.filter((building) => building.building_id === value.building_id)
-    //   }
-    //   console.log("subscribe",value, this.floorList);
-    // })
-    
+    }   
   }
 
   addFlat(){
     if(!this.editDataforFlat){
       if(this.flatForm.valid){
-        this.api.postFlat({...this.flatForm.value, id:uuidv4(), building_id: this.flatForm.value.buildingName.building_id })
+        this.api.postFlat({...this.flatForm.value,
+         id:uuidv4(), building_id: this.flatForm.value.buildingName.building_id })//The “Universally unique identifier”, or UUID,used for provide a consistent format for any unique ID we use for our data
         .subscribe({
           next:(res)=>{
             alert("Flat details added successfully")

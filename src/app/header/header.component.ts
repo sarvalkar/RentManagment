@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
   }
-  logout(){
-    this.commonService.setLoggedInUser(false);
-  }
+  // logout(){
+  //   this.commonService.setLoggedInUser(false);
+  // }
 }

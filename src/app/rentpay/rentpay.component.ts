@@ -20,13 +20,14 @@ import { log } from 'util';
   styleUrls: ['./rentpay.component.scss']
 })
 export class RentpayComponent implements OnInit {
-
-  displayedColumns: string[] = ['renterName', 'rentAmmount', 'monthOfPayment', 'rentType', 'electricBill', 'waterBill', 'action'];
+  jsonData:any
+  displayedColumns: string[] = [ 'renterName','rentAmmount', 'monthOfPayment', 'rentType', 'electricBill', 'waterBill', 'action'];
   dataSource!: MatTableDataSource<any>;
   public downloadUrl: any;
   filename = "";
   allowedFileExtensions = ['json'];
-
+  public data: any;
+  public allRenterPayData: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   downloadJsonHref: any;
@@ -39,14 +40,25 @@ export class RentpayComponent implements OnInit {
   file?: File;
   extensionFile!: false;
   isUploded = true;
-  jsonData:any;
+  fetchData?:any;
   fileToUpload!: File;
   localUrl: any;
  
-  constructor(private http: ApiService,public dialog: MatDialog, private api: ApiService, private fileService: FileserviceService) {}
+  constructor(private http: ApiService,public dialog: MatDialog, private _http:HttpClient,
+    private api: ApiService, private fileService: FileserviceService) {}
+    sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+
  
   ngOnInit(): void {
     this.getAllRenterList();
+//     this.api.getRentPay().subscribe(data => {
+//       this.data = data;         //Reading JSON Data
+//       this.getAllRenterList();    //Calling getAllRenterList Function
+// });
   }
   
   addRenter() {
@@ -58,17 +70,17 @@ export class RentpayComponent implements OnInit {
       }
     })
   }
-
+// function to download tha rent pay data
   generateDownloadJsonUri() {
     this.fileService.downloadFile().subscribe(res => {
       let exportData = res;
       return saveAs(
-        new Blob([JSON.stringify(exportData, null, 2)], { type: 'JSON' }), 'sample.json'
+        new Blob([JSON.stringify(exportData, null, 2)], { type: 'JSON' }), 'RentPay.json'
       );
     })
   }
 
-
+// to validate file type is json
 validateFile(name: String) {
   var ext = name.substring(name.lastIndexOf('.') + 1);
   if (ext.toLowerCase() == 'json') {
@@ -78,22 +90,25 @@ validateFile(name: String) {
       return false;
   }
 }
-
+//Function fro selecting file to upload in rent pay list.
   selectFiles(event: any): void {
     this.message = [];
     this.progressInfos = [];
     this.selectedFiles = event.target.files;
-    console.log('path',event);
+    console.log('path',event.target.files);
     
     this.previews = [];
     if (this.selectedFiles && this.selectedFiles[0]) {
       if(!this.validateFile(this.selectedFiles[0].name)){
         alert('upload valid json file')
+        this.isUploded = false;
+      }else{
+        this.isUploded = true;
       }
       
     }
   }
-
+// Function for uploading the file
   uploadFiles(): void {
     this.message = [];
     if (this.selectedFiles) {
@@ -108,25 +123,27 @@ validateFile(name: String) {
     if (file) {
       const numberOfFiles = this.selectedFiles.length;
       for (let i = 0; i < numberOfFiles; i++) {
-        const reader = new FileReader();
+        const reader = new FileReader();//to read the contents of files
         reader.onload = (e: any) => {  
-          const fileContent = reader.result as string;      
+          console.log('e',e);  
+          const fileContent = e.target.result;                
           try{
-            const jsonData =JSON.stringify(fileContent);
-            console.log('result',jsonData);
+            let jsonData =JSON.parse(fileContent.toString());//JSON parsing is used for converting a JSON object in text format to a Javascript object that can be used inside a program
+            if(Array.isArray(jsonData)){
+              jsonData = jsonData[0]  
+            }
             this.fileService.postRenPay(jsonData).subscribe(res=>{
-              alert('file uploded successfully..')
-              console.log(res);       
+              alert('file uploded successfully..')      
             })
           } catch(error){
             console.log(error); 
           };
         };
-        reader.readAsDataURL(this.selectedFiles[i]);
+        reader.readAsText(this.selectedFiles[i]);
       }
     }
   }
-
+//Functon for Updating existing row.
   editRenter(row: any) {
     this.dialog.open(DialogforRentPayComponent, {
       data: row
@@ -160,17 +177,36 @@ validateFile(name: String) {
   }
 
   getAllRenterList() {
-    this.fileService.getFiles()
+    this.api.getRentPay()
       .subscribe({
         next: (res: any) => {
-          this.dataSource = new MatTableDataSource(res);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort
+          if(res){
+            this.fetchData = res;
+            console.log(this.fetchData);
+            
+            this.dataSource = new MatTableDataSource(res);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort
+          }    
         },
         error: (err) => {
           alert("Error while fetching data")
         }
       })
+    // if (this.data) {
+    //    const dataList = this.data;
+    //   let tempArr : any = [];
+    //   for (let {} of dataList) {
+    //     this.api.getRentPay().subscribe((Response: any) => {
+    //       tempArr.push(Response[0]);   
+    //       this.dataSource = new MatTableDataSource(tempArr);
+    //        this.dataSource.paginator = this.paginator;
+    //        this.dataSource.sort = this.sort      //Pushing Response to Array
+    //     })        
+    //   }
+    //   console.log(tempArr)
+    //  // this.allRenterPayData = tempArr;   //Assigning Array to allRenterPayData
+    // }
   }
 
 }

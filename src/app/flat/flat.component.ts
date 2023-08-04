@@ -25,6 +25,11 @@ export class FlatComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
   constructor(public dialog: MatDialog,private api:ApiService) { }
 
@@ -32,7 +37,7 @@ export class FlatComponent implements OnInit {
     this.getAllFlatList();
   }
 
-  addFlat(){
+  addFlat(){//To add flat in flat list
     this.dialog.open(DialogforflatComponent, {
       width:'30%'
      }).afterClosed().subscribe(val=>{
@@ -63,7 +68,9 @@ export class FlatComponent implements OnInit {
         alert("Error while Deleting")
       }
     })
+    //this.deleteAllRenterByBuildingId( flatName)
   }
+  
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

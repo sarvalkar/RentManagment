@@ -20,6 +20,11 @@ export class BuildingComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog, private api:ApiService ) { }
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
   ngOnInit(): void {
     this.getAllBuldingList();
@@ -47,17 +52,27 @@ export class BuildingComponent implements OnInit {
 // For deleteing the row
   deleteBuildings(id:number| string){
     this.deleteAllFlatsByBuildingId(id.toString())
-    // this.api.deleteBuilding(id)
-    // .subscribe({
-    //   next:(res)=>{
-    //     alert("Building Details Deleted..")
-    //     this.deleteAllFlatsByBuildingId(res.id)
-    //     this.getAllBuldingList()
-    //   },
-    //   error:(err)=>{
-    //     alert("Error while Deleting")
-    //   }
-    // })
+    this.deleteAllRenterByBuildingId(id.toString())
+  }
+  
+  async deleteAllRenterByBuildingId(id:string) {
+    try {
+   // const data = await this.api.deleteBuilding(id).toPromise();
+    const _allRenters = await this.api.getRenter().toPromise();
+    const renter_need_to_deleate =  _allRenters.map((renter: { building_id: string; id: string; },i: any)  => {
+      if(renter.building_id === id) {
+        return this.api.deleteRenter(renter.id).toPromise();
+      } else {
+        return;
+      }
+    })
+    const deleatedRenter = await Promise.all(renter_need_to_deleate);
+    this.getAllBuldingList();
+    } catch (error) {
+      alert(error)
+      console.log(error);
+      
+    }  
   }
 
 // To ad new Building information here with Building name, Floor number and Building number.
@@ -89,7 +104,6 @@ export class BuildingComponent implements OnInit {
 
   async deleteAllFlatsByBuildingId(id:string) {
     try {
-      debugger;
     const data = await this.api.deleteBuilding(id).toPromise();
     const _allFlats = await this.api.getFlat().toPromise();
     const flat_need_to_deleate =  _allFlats.map((flat: { building_id: string; id: string; },i: any)  => {

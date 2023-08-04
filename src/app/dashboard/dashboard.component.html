@@ -1,5 +1,10 @@
 
 <!-- 3 simple cards to show the count of total renter, building and flat -->
+<mat-drawer-container>
+<mat-drawer  mode="side" [opened]="sideBarOpen">
+  <app-sidenav></app-sidenav>
+</mat-drawer>
+<mat-drawer-content>   <app-header   (toggleSidebarForMe)="sideBarToggler()"></app-header>
 
 <div class="container-fluid page">
     <div class="d-flex page__box p-3 mt-2">Dashboard</div>
@@ -38,3 +43,6 @@
       </div>
     </div>
   </div>
+  </mat-drawer-content> 
+</mat-drawer-container>
+ 

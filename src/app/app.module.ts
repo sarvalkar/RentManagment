@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { DialogforRenterComponent } from './dialogfor-renter/dialogfor-renter.component';
 import { DialogforRentPayComponent } from './dialogfor-rent-pay/dialogfor-rent-pay.component';
 import { RentpayComponent } from './rentpay/rentpay.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RentpayComponent } from './rentpay/rentpay.component';
     DialogforflatComponent,
     DialogforRenterComponent,
     DialogforRentPayComponent,
-    RentpayComponent
+    RentpayComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

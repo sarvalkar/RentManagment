@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:'rentpay',component:RentpayComponent}
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

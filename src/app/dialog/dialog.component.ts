@@ -31,13 +31,6 @@ actionBtn:string = "Save";
     }
   }
 
-  // get buildingName(){
-  //   return this.buildingForm.get('buildingName');
-  // }
-
-  // get floorNumber(){
-  //   return this.buildingForm.get('floorNumber');
-  // }
 
   addBuilding(){ // Sending data on save to json server
     if(!this.editData){

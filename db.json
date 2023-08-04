@@ -5,86 +5,211 @@
       "password": "admin"
     }
   ],
+  "upload": [
+    {
+      "id": 1
+    },
+    [
+      {
+        "renterName": {
+          "renterName": "rahul",
+          "floorNumber": {
+            "buildingName": "A wing",
+            "floorNumber": 1,
+            "id": 1
+          },
+          "flatName": {
+            "flatName": "2",
+            "buildingName": {
+              "buildingName": "A wing",
+              "floorNumber": 1,
+              "id": 1
+            },
+            "floorNumber": {
+              "buildingName": "B wing ",
+              "floorNumber": 5,
+              "id": 2
+            },
+            "id": 1
+          },
+          "buildingName": {
+            "buildingName": "A wing",
+            "floorNumber": 1,
+            "id": 1
+          },
+          "id": 1
+        },
+        "rentAmmount": "2000",
+        "monthOfPayment": "2023-08-01T18:30:00.000Z",
+        "rentType": "Active month",
+        "electricBill": "770",
+        "waterBill": "666",
+        "id": 1
+      },
+      {
+        "renterName": {
+          "renterName": "pradeep",
+          "floorNumber": {
+            "buildingName": "A wing",
+            "floorNumber": 1,
+            "id": 1
+          },
+          "flatName": {
+            "flatName": "5",
+            "buildingName": {
+              "buildingName": "B wing ",
+              "floorNumber": 5,
+              "id": 2
+            },
+            "floorNumber": {
+              "buildingName": "A wing",
+              "floorNumber": 1,
+              "id": 1
+            },
+            "id": 2
+          },
+          "buildingName": {
+            "buildingName": "B wing ",
+            "floorNumber": 5,
+            "id": 2
+          },
+          "id": 2
+        },
+        "rentAmmount": "3000",
+        "monthOfPayment": "2023-08-29T18:30:00.000Z",
+        "rentType": "Active month",
+        "electricBill": "666",
+        "waterBill": "777",
+        "id": 2
+      }
+    ]
+  ],
   "buildingList": [
     {
-      "buildingName": "a",
-      "floorNumber": 3,
-      "id": 1
+      "buildingName": "A wing",
+      "floorNumber": 1,
+      "id": "2e42c9e6-dedd-4b95-901e-3f94e442601e"
+    },
+    {
+      "buildingName": "B wing",
+      "floorNumber": 2,
+      "id": "6991931e-dc35-4a45-90df-b336c367a61d"
     }
   ],
   "flatList": [
     {
       "flatName": "2",
       "buildingName": {
-        "buildingName": "d",
-        "floorNumber": 2,
-        "id": 1
+        "buildingName": "A wing",
+        "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+        "floorNumber": 1
       },
       "floorNumber": {
-        "buildingName": "d",
-        "floorNumber": 2,
-        "id": 1
+        "buildingName": "A wing",
+        "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+        "floorNumber": 1
       },
-      "id": 1
+      "id": "08333577-bef8-470f-86a8-e2242d773ef8",
+      "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e"
     },
     {
       "flatName": "3",
       "buildingName": {
-        "buildingName": "a",
-        "floorNumber": 3,
-        "id": 1
+        "buildingName": "B wing",
+        "building_id": "6991931e-dc35-4a45-90df-b336c367a61d",
+        "floorNumber": 2
       },
       "floorNumber": {
-        "buildingName": "a",
-        "floorNumber": 3,
-        "id": 1
+        "buildingName": "B wing",
+        "building_id": "6991931e-dc35-4a45-90df-b336c367a61d",
+        "floorNumber": 2
       },
-      "id": 2
+      "id": "d306642b-5a17-4df2-9ed4-62f6caa5bc7d",
+      "building_id": "6991931e-dc35-4a45-90df-b336c367a61d"
     }
   ],
-  "renterList": [],
+  "renterList": [
+    {
+      "renterName": "RK",
+      "floorNumber": {
+        "buildingName": "A wing",
+        "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+        "floorNumber": 1
+      },
+      "flatName": {
+        "flatName": "2",
+        "building_id": "08333577-bef8-470f-86a8-e2242d773ef8",
+        "floorNumber": {
+          "buildingName": "A wing",
+          "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+          "floorNumber": 1
+        }
+      },
+      "buildingName": {
+        "buildingName": "A wing",
+        "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+        "floorNumber": 1
+      },
+      "id": "f17b694f-6c89-4e7f-a9af-66fb24399f5f",
+      "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e"
+    },
+    {
+      "renterName": "yogesh",
+      "floorNumber": {
+        "buildingName": "B wing",
+        "building_id": "6991931e-dc35-4a45-90df-b336c367a61d",
+        "floorNumber": 2
+      },
+      "flatName": {
+        "flatName": "3",
+        "building_id": "d306642b-5a17-4df2-9ed4-62f6caa5bc7d",
+        "floorNumber": {
+          "buildingName": "B wing",
+          "building_id": "6991931e-dc35-4a45-90df-b336c367a61d",
+          "floorNumber": 2
+        }
+      },
+      "buildingName": {
+        "buildingName": "B wing",
+        "building_id": "6991931e-dc35-4a45-90df-b336c367a61d",
+        "floorNumber": 2
+      },
+      "id": "b885b4e9-2f93-4808-9ae0-1396990869f5",
+      "building_id": "6991931e-dc35-4a45-90df-b336c367a61d"
+    }
+  ],
   "rentPay": [
     {
       "renterName": {
-        "renterName": "pradeep",
+        "renterName": "RK",
         "floorNumber": {
           "buildingName": "A wing",
-          "floorNumber": 1,
-          "id": 1
+          "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+          "floorNumber": 1
         },
         "flatName": {
-          "flatName": "5",
-          "buildingName": {
-            "buildingName": "B wing ",
-            "floorNumber": 5,
-            "id": 2
-          },
+          "flatName": "2",
+          "building_id": "08333577-bef8-470f-86a8-e2242d773ef8",
           "floorNumber": {
             "buildingName": "A wing",
-            "floorNumber": 1,
-            "id": 1
-          },
-          "id": 2
+            "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+            "floorNumber": 1
+          }
         },
         "buildingName": {
-          "buildingName": "B wing ",
-          "floorNumber": 5,
-          "id": 2
+          "buildingName": "A wing",
+          "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e",
+          "floorNumber": 1
         },
-        "id": 2
+        "id": "f17b694f-6c89-4e7f-a9af-66fb24399f5f",
+        "building_id": "2e42c9e6-dedd-4b95-901e-3f94e442601e"
       },
-      "rentAmmount": "9000",
-      "monthOfPayment": "2023-08-30T18:30:00.000Z",
-      "rentType": "Due rent",
-      "electricBill": "880",
-      "waterBill": "780",
+      "rentAmmount": "2000",
+      "monthOfPayment": "2023-07-03T18:30:00.000Z",
+      "rentType": "Active month",
+      "electricBill": "441",
+      "waterBill": "300",
       "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3
     }
   ]
 }

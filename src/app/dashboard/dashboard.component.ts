@@ -12,6 +12,11 @@ export class DashboardComponent implements OnInit {
    buildingList:any;
    flatList:any;
    renterList:any;
+   sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
   ngOnInit(): void { // Fetching data from json server to show count in dashboard
       this.http.get('http://localhost:3000/buildingList/').subscribe(res => {     

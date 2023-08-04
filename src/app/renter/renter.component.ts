@@ -23,6 +23,12 @@ export class RenterComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog,private api:ApiService) { }
+  sideBarOpen = true;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+
 
   ngOnInit(): void {
     this.getAllRenterList();

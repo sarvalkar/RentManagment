@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonserviceService } from './services/commonservice.service';
 import { take } from 'rxjs';
 
@@ -7,15 +7,22 @@ import { take } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit,OnChanges {
   isloggedIn$:any;
   lastEvent: any;
+ // isLoggedOut = false;
   constructor(private commonService:CommonserviceService){
     this.isloggedIn$ = this.commonService.getLoggedInUser();
 
     this.isloggedIn$.subscribe((value: any) => {
       this.lastEvent = value;
+     // this.isLoggedOut= value;
+      console.log('last event',value);
+      
     });
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
   }
   ngAfterViewInit() {
    

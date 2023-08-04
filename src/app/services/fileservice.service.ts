@@ -12,29 +12,29 @@ export class FileserviceService {
 
   constructor(private http: HttpClient) {}
 
-  upload(file: File): Observable<any> {
-     const formData: FormData = new FormData();
+//   upload(file: File): Observable<any> {
+//      const formData: FormData = new FormData();
 
-     formData.append('file', file);
+//      formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${this.baseUrl}`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
+//     const req = new HttpRequest('POST', `${this.baseUrl}`, formData, {
+//       reportProgress: true,
+//       responseType: 'json'
+//     });
 
-    return this.http.request(req);
-  }
+//     return this.http.request(req);
+//   }
 
-  postFile(fileToUpload: File): Observable<any> {
-    const endpoint = 'http://localhost:3000/rentPay/';
-    const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http
-      .post(endpoint, formData);
-}
+//   postFile(fileToUpload: File): Observable<any> {
+//     const endpoint = 'http://localhost:3000/rentPay/';
+//     const formData: FormData = new FormData();
+//     formData.append('fileKey', fileToUpload, fileToUpload.name);
+//     return this.http
+//       .post(endpoint, formData);
+// }
 
 postRenPay(data:any){
-  return this.http.post<any>("http://localhost:3000/rentPay/",data);
+  return this.http.post<any>("http://localhost:3000/rentPay",data);
 }
 
 
